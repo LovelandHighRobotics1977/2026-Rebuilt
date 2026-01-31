@@ -115,10 +115,29 @@ class Operator : public frc2::SubsystemBase {
 
 		bool Mech_1_Foward;
 		bool Mech_1_Backward;
+		bool Mech_2_Foward;
+		bool Mech_2_Backward;
+		bool Mech_3_Foward;
+		bool Mech_3_Backward;
+		bool Mech_4_Foward;
+		bool Mech_4_Backward;
+		bool Mech_5_Foward;
+		bool Mech_5_Backward;
+		bool Mech_6_Foward;
+		bool Mech_6_Backward;
 		void update(){
 			Mech_1_Foward = m_XboxController.GetLeftBumperButton();
 			Mech_1_Backward = m_XboxController.GetRightBumperButton();
-
+			Mech_2_Foward = m_XboxController.GetLeftBumperButton();
+			Mech_2_Backward = m_XboxController.GetRightBumperButton();
+			Mech_3_Foward = m_XboxController.GetXButton();
+			Mech_3_Backward = m_XboxController.GetBButton();
+			Mech_4_Foward = m_XboxController.GetXButton();
+			Mech_4_Backward = m_XboxController.GetBButton();
+			Mech_5_Foward = m_XboxController.GetStartButton();
+			Mech_5_Backward = m_XboxController.GetBackButton();
+			Mech_6_Foward = m_XboxController.GetYButton();
+			Mech_6_Backward = m_XboxController.GetAButton();
 		}
 
 		

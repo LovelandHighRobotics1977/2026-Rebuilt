@@ -4,10 +4,13 @@
 #include "RobotBase/specifications/RobotSpecifications.hpp"
 namespace Mechanism {
 	
-	static constexpr int Cancoder = 16;
 	static constexpr int Mech_1_1 = 14;
 	static constexpr int Mech_1_2 = 15;
-	
+	static constexpr int Mech_2 = 16;
+	static constexpr int Mech_3 = 17;
+	static constexpr int Mech_4 = 18;
+	static constexpr int Mech_5 = 19;
+	static constexpr int Mech_6 = 20;
 	
 }
 

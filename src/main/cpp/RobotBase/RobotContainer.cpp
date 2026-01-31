@@ -39,11 +39,40 @@ void RobotContainer::ConfigureButtonBindings() {
 	resetGyro.OnTrue(frc2::InstantCommand( [] {Gyro::GetInstance()->ahrs.Reset();} ).ToPtr());
 
 	frc2::Trigger Mech_1_Foward([this] { return m_operator.Mech_1_Foward; });
-	Mech_1_Foward.OnTrue(m_mechanism.Mech_1_Foward().ToPtr());
+	Mech_1_Foward.WhileTrue(m_mechanism.Mech_1_Foward().ToPtr());
 
 	frc2::Trigger Mech_1_Backward([this] { return m_operator.Mech_1_Backward; });
-	Mech_1_Backward.OnTrue(m_mechanism.Mech_1_Backward().ToPtr());
+	Mech_1_Backward.WhileTrue(m_mechanism.Mech_1_Backward().ToPtr());
 
+		frc2::Trigger Mech_2_Foward([this] { return m_operator.Mech_2_Foward; });
+	Mech_2_Foward.WhileTrue(m_mechanism.Mech_2_Foward().ToPtr());
+
+	frc2::Trigger Mech_2_Backward([this] { return m_operator.Mech_2_Backward; });
+	Mech_2_Backward.WhileTrue(m_mechanism.Mech_2_Backward().ToPtr());
+		
+	frc2::Trigger Mech_3_Foward([this] { return m_operator.Mech_3_Foward; });
+	Mech_3_Foward.WhileTrue(m_mechanism.Mech_3_Foward().ToPtr());
+
+	frc2::Trigger Mech_3_Backward([this] { return m_operator.Mech_3_Backward; });
+	Mech_3_Backward.WhileTrue(m_mechanism.Mech_3_Backward().ToPtr());
+		
+	frc2::Trigger Mech_4_Foward([this] { return m_operator.Mech_4_Foward; });
+	Mech_4_Foward.WhileTrue(m_mechanism.Mech_4_Foward().ToPtr());
+
+	frc2::Trigger Mech_4_Backward([this] { return m_operator.Mech_4_Backward; });
+	Mech_4_Backward.WhileTrue(m_mechanism.Mech_4_Backward().ToPtr());
+		
+	frc2::Trigger Mech_5_Foward([this] { return m_operator.Mech_5_Foward; });
+	Mech_5_Foward.WhileTrue(m_mechanism.Mech_5_Foward().ToPtr());
+
+	frc2::Trigger Mech_5_Backward([this] { return m_operator.Mech_5_Backward; });
+	Mech_5_Backward.WhileTrue(m_mechanism.Mech_5_Backward().ToPtr());
+		
+	frc2::Trigger Mech_6_Foward([this] { return m_operator.Mech_6_Foward; });
+	Mech_6_Foward.WhileTrue(m_mechanism.Mech_6_Foward().ToPtr());
+
+	frc2::Trigger Mech_6_Backward([this] { return m_operator.Mech_6_Backward; });
+	Mech_6_Backward.WhileTrue(m_mechanism.Mech_6_Backward().ToPtr());
 	
 
 

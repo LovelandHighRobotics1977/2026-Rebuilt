@@ -20,7 +20,7 @@
 
 // CTRE Phoenix Hardware APIs
 //#include <ctre/Phoenix.h>   // Included for legacy brushed motor controllers
-#include <ctre/phoenix6/configs/Configs.hpp>
+#include <ctre/phoenix6/configs/Configuration.hpp>
 #include <ctre/phoenix6/configs/Configurator.hpp>
 #include <ctre/phoenix6/CANcoder.hpp>
 #include <ctre/phoenix6/TalonFX.hpp>
