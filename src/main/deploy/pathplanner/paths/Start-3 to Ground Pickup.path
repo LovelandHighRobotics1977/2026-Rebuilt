@@ -1,0 +1,54 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.3422894424673792,
+        "y": 5.266927639383154
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 3.6960901947681997,
+        "y": 5.286579218924415
+      },
+      "isLocked": false,
+      "linkedName": "Start-3"
+    },
+    {
+      "anchor": {
+        "x": 0.4588256227758012,
+        "y": 5.944756820877817
+      },
+      "prevControl": {
+        "x": -0.20073384598146116,
+        "y": 6.029615330260689
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "Ground Pickup"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 0.0
+  },
+  "reversed": false,
+  "folder": "Starts to Ground Pickup",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -50.792796495032114
+  },
+  "useDefaultConstraints": true
+}
