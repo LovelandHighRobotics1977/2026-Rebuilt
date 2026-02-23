@@ -28,7 +28,7 @@ namespace AutoInfo{
 namespace AutoFctns{
     void setAutoRoutineValues(int position, int targetR, int targetB, std::optional<frc::DriverStation::Alliance> color);
 
-    frc2::CommandPtr autonomousRoutine(DriveSubsystem *drive);
+   frc2::CommandPtr autonomousRoutine(DriveSubsystem *drive);
 }
 
 

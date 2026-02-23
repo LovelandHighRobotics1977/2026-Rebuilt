@@ -1,0 +1,70 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.417603795966786,
+        "y": 2.587888493475682
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.3201660735468574,
+        "y": 3.5024199288256224
+      },
+      "isLocked": false,
+      "linkedName": "Start-1"
+    },
+    {
+      "anchor": {
+        "x": 4.504282325029656,
+        "y": 5.643499406880189
+      },
+      "prevControl": {
+        "x": 4.291739034552618,
+        "y": 5.77512520098299
+      },
+      "nextControl": {
+        "x": 8.743404507710556,
+        "y": 3.0182562277526266
+      },
+      "isLocked": false,
+      "linkedName": "Ramp-1"
+    },
+    {
+      "anchor": {
+        "x": 8.733577777777777,
+        "y": 1.9085888888888896
+      },
+      "prevControl": {
+        "x": 5.655516014234875,
+        "y": -1.0594780545724016
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "M-2"
+    }
+  ],
+  "rotationTargets": [],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 90.0
+  },
+  "reversed": false,
+  "folder": "Starts to Ramp-1 to M-2",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": 52.125016348901795
+  },
+  "useDefaultConstraints": true
+}

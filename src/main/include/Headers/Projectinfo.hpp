@@ -50,18 +50,18 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                                 Credits
 
 Lead Programmer: 
-    - Salem Lessem
-      https://github.com/ThatAlo
-
+    - Gabe
+    -Collin
 Assistant Programmer: 
-    - Dean Morgan
-      https://github.com/Dean27817
+    -Dinesh  
 
-Loveland High Robotics programming team:
-    [ Wyllow  ]      [ Dinesh ]
-    [ Collin  ]      [ Jacob  ]
-    [ Bradley ]      [ Willem ]
-
+Loveland High Robotics programming team:            
+     [ Willem ]
+    [ Bradley ]     
+        
+Leacy Programers
+    [ Wyllow  ]  [ Jacob  ]
+    [Dean Morgan] [Salem Lessem]
 Team mentors:
     - Mike Pintaric
     - Bruce Bowman

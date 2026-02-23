@@ -88,4 +88,19 @@ class Mech_6 : public frc2::SubsystemBase {
 		
 };
 
+class Mech_7 : public frc2::SubsystemBase {
+	public:
+		Mech_7();
+
+		void setMech_7(double speed);
+		
+	private:
+
+		ctre::phoenix6::hardware::TalonFX mech_7;
+	    ctre::phoenix6::configs::TalonFXConfiguration mech7MotorConfig{};
+		
+
+		
+};
+
 #endif

@@ -1,4 +1,12 @@
 #include "Control/Autonomous.hpp"
+#include <pathplanner/lib/auto/AutoBuilder.h>
+#include <pathplanner/lib/config/RobotConfig.h>
+#include <pathplanner/lib/controllers/PPHolonomicDriveController.h>
+#include <frc/geometry/Pose2d.h>
+#include <frc/kinematics/ChassisSpeeds.h>
+#include <frc/DriverStation.h>
+#include "Subsystems/Drivetrain/DriveSubsystem.hpp"
+#include  "Subsystems/Drivetrain/Commands.hpp"
 //In the future, pose estimation will be used to determine the location and accuracy for auto
 //must go forward 224 in. and 136 in left
 
@@ -58,7 +66,7 @@ frc2::CommandPtr AutoFctns::autonomousRoutine(DriveSubsystem *drive) {
 	return frc2::SequentialCommandGroup(
 		
 		//This will reset the gyro
-        drive->ZeroOdometry({0_m, 0_m, 0_deg}),
+        ///drive->ResetOdometry({0_m, 0_m, 0_deg}),
 		frc2::SequentialCommandGroup(
 				frc2::InstantCommand([drive] { drive->Drive({});}),
 				

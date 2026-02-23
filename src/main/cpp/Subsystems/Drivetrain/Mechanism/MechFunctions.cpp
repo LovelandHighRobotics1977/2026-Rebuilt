@@ -17,14 +17,14 @@ frc2::StartEndCommand MechFunctions::Mech_1_Backward(){
 }
 frc2::StartEndCommand MechFunctions::Mech_2_Foward(){
 	return frc2::StartEndCommand(
-		[this] {m_Mech_2.setMech_2(0.6);}, 
+		[this] {m_Mech_2.setMech_2(-0.6);}, 
 		[this] { m_Mech_2.setMech_2(0); }
 	);
 }
 
 frc2::StartEndCommand MechFunctions::Mech_2_Backward(){
 	return frc2::StartEndCommand(
-		[this] { m_Mech_2.setMech_2(-0.6); } , 
+		[this] { m_Mech_2.setMech_2(0.6); } , 
 		[this] { m_Mech_2.setMech_2(0); } 
 	);
 }
@@ -81,7 +81,19 @@ frc2::StartEndCommand MechFunctions::Mech_6_Backward(){
 	);
 }
 
+frc2::StartEndCommand MechFunctions::Mech_7_Forward(){
+	return frc2::StartEndCommand(
+		[this] {m_Mech_7.setMech_7(0.6);}, 
+		[this] { m_Mech_7.setMech_7(0); }
+	);
+}
 
+frc2::StartEndCommand MechFunctions::Mech_7_Backward(){
+	return frc2::StartEndCommand(
+		[this] {m_Mech_7.setMech_7(-0.6);}, 
+		[this] { m_Mech_7.setMech_7(0); }
+	);
+}
 /*
 void alignArm(bool align){
 

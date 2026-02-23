@@ -105,7 +105,7 @@ class Driver : public frc2::SubsystemBase {
 
 			double forward_deadzone = 0.1;
 			double strafe_deadzone  = 0.25;
-			double rotate_deadzone  = 0.1;
+			double rotate_deadzone  = 0.25;
 	};
 
 class Operator : public frc2::SubsystemBase {
@@ -125,11 +125,14 @@ class Operator : public frc2::SubsystemBase {
 		bool Mech_5_Backward;
 		bool Mech_6_Foward;
 		bool Mech_6_Backward;
+		bool Mech_7_Foward;
+		bool Mech_7_Backward;
+
 		void update(){
 			Mech_1_Foward = m_XboxController.GetLeftBumperButton();
 			Mech_1_Backward = m_XboxController.GetRightBumperButton();
-			Mech_2_Foward = m_XboxController.GetLeftBumperButton();
-			Mech_2_Backward = m_XboxController.GetRightBumperButton();
+			Mech_2_Foward = m_XboxController.GetXButton();
+			Mech_2_Backward = m_XboxController.GetBButton();
 			Mech_3_Foward = m_XboxController.GetXButton();
 			Mech_3_Backward = m_XboxController.GetBButton();
 			Mech_4_Foward = m_XboxController.GetXButton();
@@ -138,6 +141,8 @@ class Operator : public frc2::SubsystemBase {
 			Mech_5_Backward = m_XboxController.GetBackButton();
 			Mech_6_Foward = m_XboxController.GetYButton();
 			Mech_6_Backward = m_XboxController.GetAButton();
+			Mech_7_Foward = m_XboxController.GetRightStickButton();
+			Mech_7_Backward = m_XboxController.GetLeftStickButton();
 		}
 
 		

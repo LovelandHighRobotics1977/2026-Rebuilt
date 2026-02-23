@@ -1,0 +1,75 @@
+{
+  "version": "2025.0",
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 3.3422894424673792,
+        "y": 5.266927639383154
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 2.3442666666717056,
+        "y": 7.824244444449484
+      },
+      "isLocked": false,
+      "linkedName": "Start-3"
+    },
+    {
+      "anchor": {
+        "x": 4.4706777777777775,
+        "y": 7.370744444444444
+      },
+      "prevControl": {
+        "x": 4.236595483385592,
+        "y": 7.282963584047152
+      },
+      "nextControl": {
+        "x": 7.776188888893929,
+        "y": 8.61031111111615
+      },
+      "isLocked": false,
+      "linkedName": "Trench-2"
+    },
+    {
+      "anchor": {
+        "x": 8.733577777777777,
+        "y": 1.9085888888888896
+      },
+      "prevControl": {
+        "x": 5.448222222227262,
+        "y": -1.1046666666666676
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": "M-2"
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 1.0,
+      "rotationDegrees": 0.0
+    }
+  ],
+  "constraintZones": [],
+  "pointTowardsZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0,
+    "nominalVoltage": 12.0,
+    "unlimited": false
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": 90.0
+  },
+  "reversed": false,
+  "folder": "Starts to Trench-2 to M-2",
+  "idealStartingState": {
+    "velocity": 0,
+    "rotation": -50.792796495032114
+  },
+  "useDefaultConstraints": true
+}

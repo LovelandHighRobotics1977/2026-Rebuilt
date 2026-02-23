@@ -5,8 +5,10 @@
 #include "RobotBase/RobotContainer.hpp"
 #include "headers/Headers.hpp"
 #include "Subsystems/Drivetrain/AutoAim.hpp"
+#include <pathplanner/lib/auto/AutoBuilder.h>
 
 RobotContainer::RobotContainer() {
+	autoChooser = pathplanner::AutoBuilder::buildAutoChooser("New Auto");
 	ConfigureDashboard();
 	ConfigureButtonBindings();
 	ConfigureDefaultCommands();
@@ -75,7 +77,11 @@ void RobotContainer::ConfigureButtonBindings() {
 	Mech_6_Backward.WhileTrue(m_mechanism.Mech_6_Backward().ToPtr());
 	
 
+	frc2::Trigger Mech_7_Foward([this] { return m_operator.Mech_7_Foward; });
+	Mech_7_Foward.WhileTrue(m_mechanism.Mech_7_Forward().ToPtr());
 
+	frc2::Trigger Mech_7_Backward([this] { return m_operator.Mech_7_Backward; });
+	Mech_7_Backward.WhileTrue(m_mechanism.Mech_7_Backward().ToPtr());
 
 }
 
