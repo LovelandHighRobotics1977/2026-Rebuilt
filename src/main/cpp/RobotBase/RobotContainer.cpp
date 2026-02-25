@@ -6,15 +6,39 @@
 #include "headers/Headers.hpp"
 #include "Subsystems/Drivetrain/AutoAim.hpp"
 #include <pathplanner/lib/auto/AutoBuilder.h>
+#include <pathplanner/lib/auto/AutoBuilder.h>
+#include <frc/smartdashboard/SmartDashboard.h>
+#include <frc2/command/CommandPtr.h>
+#include <frc2/command/Command.h>
+#include <memory>
+#include <pathplanner/lib/auto/AutoBuilder.h>
+#include <pathplanner/lib/path/PathPlannerPath.h>
+#include <pathplanner/lib/commands/PathPlannerAuto.h>
+#include <pathplanner/lib/auto/NamedCommands.h>
+#include <pathplanner/lib/events/EventTrigger.h>
+#include <frc/smartdashboard/SmartDashboard.h>
+#include <frc2/command/Commands.h>
+#include <pathplanner/lib/auto/AutoBuilder.h>
+#include "Subsystems/Mechanism/MechFunctions.hpp"
 
 RobotContainer::RobotContainer() {
 	autoChooser = pathplanner::AutoBuilder::buildAutoChooser("New Auto");
+	frc::SmartDashboard::PutData("Auto Chooser", &autoChooser);
 	ConfigureDashboard();
 	ConfigureButtonBindings();
 	ConfigureDefaultCommands();
 	ConfigureAutonomousChooser();
+	pathplanner::NamedCommands::registerCommand("Shoot", std::move(m_mechanism.shoot()).ToPtr());
 }
 
+/*frc2::Command * RobotContainer::getSelectedAutonomous() {
+  // Returns a frc2::Command* that is freed at program termination
+  return autoChooser.GetSelected();
+}*/
+using namespace pathplanner;
+frc2::CommandPtr RobotContainer::getAutonomousCommand() {
+  return PathPlannerAuto("Test").ToPtr();
+}
 void RobotContainer::ConfigureDefaultCommands() {
 	m_driver.SetDefaultCommand(frc2::RunCommand( [this] { m_driver.update(); } , {&m_driver} ));
 	m_operator.SetDefaultCommand(frc2::RunCommand( [this] { m_operator.update(); } , {&m_operator} ));
@@ -77,11 +101,7 @@ void RobotContainer::ConfigureButtonBindings() {
 	Mech_6_Backward.WhileTrue(m_mechanism.Mech_6_Backward().ToPtr());
 	
 
-	frc2::Trigger Mech_7_Foward([this] { return m_operator.Mech_7_Foward; });
-	Mech_7_Foward.WhileTrue(m_mechanism.Mech_7_Forward().ToPtr());
 
-	frc2::Trigger Mech_7_Backward([this] { return m_operator.Mech_7_Backward; });
-	Mech_7_Backward.WhileTrue(m_mechanism.Mech_7_Backward().ToPtr());
 
 }
 
@@ -89,30 +109,30 @@ void RobotContainer::ConfigureAutonomousChooser() {
 
 	//Starting position option
 	
-	c_position.AddOption("Field Center", 1);
-	c_position.AddOption("Team Center", 2);
-	c_position.AddOption("Outside of Field", 3);
+	//c_position.AddOption("Field Center", 1);
+	//c_position.AddOption("Team Center", 2);
+	//c_position.AddOption("Outside of Field", 3);
 	
 
-	frc::SmartDashboard::PutData("Auto Position", &c_position);
+	//frc::SmartDashboard::PutData("Auto Position", &c_position);
 	//create c_position dropdown menu
 
 	//Position set option
-	c_target.AddOption("10/21", 1); //The front
+	/*c_target.AddOption("10/21", 1); //The front
 	c_target.AddOption("9/20", 2); 
 	c_target.AddOption("8/19", 3);
 	c_target.AddOption("7/18", 4); //The back
 	c_target.AddOption("6/17", 5);
 	c_target.AddOption("11/22", 6);
-
-	frc::SmartDashboard::PutData("Auto Target", &c_target);
+	*/
+	//frc::SmartDashboard::PutData("Auto Target", &c_target);
 
 	//Alliancee override option
-	c_allianceOverride.SetDefaultOption("Base Option",0);
-	c_allianceOverride.AddOption("Red",1);
-	c_allianceOverride.AddOption("Blue",2);
+	//c_allianceOverride.SetDefaultOption("Base Option",0);
+	//c_allianceOverride.AddOption("Red",1);
+	//c_allianceOverride.AddOption("Blue",2);
 
-	frc::SmartDashboard::PutData("Alliance Override", &c_allianceOverride);
+	//frc::SmartDashboard::PutData("Alliance Override", &c_allianceOverride);
 }
 
 void RobotContainer::setAutoValues() {
@@ -164,6 +184,6 @@ void RobotContainer::ConfigureDashboard() {
 
 }
 
-frc2::Command* RobotContainer::GetAutonomousCommand() {
+/*frc2::Command* RobotContainer::GetAutonomousCommand() {
 	return RobotContainer::a_main.get();
-}
+}*/

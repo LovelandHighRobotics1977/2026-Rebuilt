@@ -27,6 +27,7 @@ public:
 	void Drive(DriveData data);
 	void driveRobotRelative(frc::ChassisSpeeds speeds);
 	void SetModuleStates(wpi::array<frc::SwerveModuleState, 4> desiredStates);
+	
 	frc2::SequentialCommandGroup resetPose(frc::Pose2d pose);
 
 	frc::Rotation2d GetHeading();
@@ -42,12 +43,11 @@ public:
 	void driveFromTagDuringAuto();
 	frc2::SequentialCommandGroup AutoAlignLeft(DriveSubsystem *drive);
 	frc2::SequentialCommandGroup AutoAlignRight(DriveSubsystem *drive);
-	
-
-
-
 	void ResetOdometry(frc::Pose2d pose);
-private:	void ResetWheels();
+private:
+
+	
+	void ResetWheels();
 
 	SwerveModule m_frontLeft;
 	SwerveModule m_frontRight;

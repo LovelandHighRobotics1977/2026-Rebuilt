@@ -3,51 +3,51 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.3422894424673792,
-        "y": 5.266927639383154
+        "x": 7.721281138790035,
+        "y": 0.9632502965599041
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.3442666666717056,
-        "y": 7.824244444449484
+        "x": 7.194080664294188,
+        "y": 1.017046263345195
       },
       "isLocked": false,
-      "linkedName": "Start-3"
+      "linkedName": "Ideal Path Part 2 end"
     },
     {
       "anchor": {
-        "x": 4.472004744958482,
-        "y": 7.386488730723606
+        "x": 4.571455555555556,
+        "y": 0.5884000000000003
       },
       "prevControl": {
-        "x": 4.237922450566294,
-        "y": 7.298707870326313
+        "x": 6.163830416105181,
+        "y": 0.5737679536060576
       },
       "nextControl": {
-        "x": 7.777515856074633,
-        "y": 8.626055397395312
+        "x": 2.4169988137603804,
+        "y": 0.6081969157769851
       },
       "isLocked": false,
-      "linkedName": "Trench-2"
+      "linkedName": "Trench-1"
     },
     {
       "anchor": {
-        "x": 8.733577777777777,
-        "y": 1.9085888888888896
+        "x": 3.22393831553974,
+        "y": 3.0935705812574144
       },
       "prevControl": {
-        "x": 5.448222222227262,
-        "y": -1.1046666666666667
+        "x": 2.1480189798339273,
+        "y": 2.8783867141162514
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "M-2"
+      "linkedName": "Ideal Path Part 3 end"
     }
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 1.0,
-      "rotationDegrees": 0.0
+      "waypointRelativePos": 1,
+      "rotationDegrees": 180.0
     }
   ],
   "constraintZones": [],
@@ -63,13 +63,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.0
+    "rotation": 38.65980825409005
   },
   "reversed": false,
-  "folder": "Starts to Trench-2 to M-2",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -50.792796495032114
+    "rotation": -90.0
   },
   "useDefaultConstraints": true
 }

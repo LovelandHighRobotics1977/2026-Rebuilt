@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.3422894424673792,
-        "y": 5.266927639383154
+        "x": 3.266975088967973,
+        "y": 4.728967971530249
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.3442666666717056,
-        "y": 7.824244444449484
+        "x": 1.0183036773428236,
+        "y": 7.171304863582444
       },
       "isLocked": false,
-      "linkedName": "Start-3"
+      "linkedName": null
     },
     {
       "anchor": {
@@ -20,28 +20,28 @@
         "y": 7.386488730723606
       },
       "prevControl": {
-        "x": 4.237922450566294,
-        "y": 7.298707870326313
+        "x": 3.191660735468564,
+        "y": 7.268137603795966
       },
       "nextControl": {
-        "x": 7.777515856074633,
-        "y": 8.626055397395312
+        "x": 5.467759633084697,
+        "y": 7.478533300214265
       },
       "isLocked": false,
       "linkedName": "Trench-2"
     },
     {
       "anchor": {
-        "x": 8.733577777777777,
-        "y": 1.9085888888888896
+        "x": 7.721281138790035,
+        "y": 7.106749703440094
       },
       "prevControl": {
-        "x": 5.448222222227262,
-        "y": -1.1046666666666667
+        "x": 7.743915075300669,
+        "y": 6.857776401823169
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "M-2"
+      "linkedName": "Ideal Path Part 1 end"
     }
   ],
   "rotationTargets": [
@@ -63,13 +63,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 90.0
+    "rotation": -90.0
   },
   "reversed": false,
-  "folder": "Starts to Trench-2 to M-2",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": -50.792796495032114
+    "rotation": -34.04593735660162
   },
   "useDefaultConstraints": true
 }

@@ -53,8 +53,8 @@ DriveSubsystem::DriveSubsystem()
         [this](){ return this->getRobotRelativeSpeeds(); }, 
         [this](const frc::ChassisSpeeds& speeds){this->driveRobotRelative(speeds);}, 
         std::make_shared<PPHolonomicDriveController>( 
-            PIDConstants(5.0, 0.0, 0.0), // Translation 
-            PIDConstants(5.0, 0.0, 0.0) // Rotation
+            PIDConstants(0.0, 0.0, 0.0), // Translation 
+            PIDConstants(8.0, 0.0, 0.0) // Rotation
         ),
         config, 
         [this]() {  
