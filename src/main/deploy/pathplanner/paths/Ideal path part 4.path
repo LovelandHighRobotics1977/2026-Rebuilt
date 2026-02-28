@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 3.417603795966786,
-        "y": 2.587888493475682
+        "x": 3.22393831553974,
+        "y": 3.0935705812574144
       },
       "prevControl": null,
       "nextControl": {
-        "x": 3.6617095314972503,
-        "y": 2.6418550560967256
+        "x": 3.479884883110934,
+        "y": 3.139660147222008
       },
       "isLocked": false,
-      "linkedName": "Start-1"
+      "linkedName": "Ideal Path Part 3 end"
     },
     {
       "anchor": {
-        "x": 0.4588256227758012,
-        "y": 5.944756820877817
+        "x": 3.105587188612101,
+        "y": 2.5233333333333325
       },
       "prevControl": {
-        "x": 0.27375571500533036,
-        "y": 6.112831593636341
+        "x": 2.870715313669464,
+        "y": 2.437687537400723
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "Ground Pickup"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
@@ -45,10 +45,10 @@
     "rotation": 0.0
   },
   "reversed": false,
-  "folder": "Starts to Ground Pickup",
+  "folder": null,
   "idealStartingState": {
     "velocity": 0,
-    "rotation": 52.125016348901795
+    "rotation": 38.65980825409005
   },
   "useDefaultConstraints": true
 }

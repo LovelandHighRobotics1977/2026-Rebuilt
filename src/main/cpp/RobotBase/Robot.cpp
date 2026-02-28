@@ -4,7 +4,8 @@
 
 #include "RobotBase/Robot.hpp"
 #include "Control/Autonomous.hpp"
-
+#include <frc2/command/Command.h>
+#include "RobotBase/RobotContainer.hpp"
 void Robot::RobotInit() {}
 void Robot::RobotPeriodic() { 
 	frc2::CommandScheduler::GetInstance().Run(); 
@@ -17,23 +18,27 @@ void Robot::DisabledExit() {}
 void Robot::AutonomousInit() {
 	frc::Timer().Restart();
 	//RobotContainer().setAutoValues();
+	
 	//AutoFctns::setAutoRoutineValues(AutoInfo::positionSet, AutoInfo::targetSetR, AutoInfo::targetSetB, AutoInfo::colorSet);
-	m_autonomousCommand = m_container.GetAutonomousCommand(); //Likely not going to use, delete later
+	//m_autonomousCommand = m_container.GetAutonomousCommand();
+ //Likely not going to use, delete later
 	//m_autonomousCommand = RobotContainer::a_main; //sets the auto command to the one and only.  Must change if more get added
 	//add new way to get autonomous command
 	
-	if (m_autonomousCommand != nullptr) {
-		m_autonomousCommand->Schedule(); 
-	}
+	  m_autonomousCommand = m_container.getAutonomousCommand();
+
+  if (m_autonomousCommand) {
+    m_autonomousCommand->Schedule();
+  }
 }
+
 void Robot::AutonomousPeriodic() {}
 void Robot::AutonomousExit() {}
 
 void Robot::TeleopInit() {
-	if (m_autonomousCommand != nullptr) {
-		m_autonomousCommand->Cancel();
-		m_autonomousCommand = nullptr;
-	}
+	  if (m_autonomousCommand) {
+    m_autonomousCommand->Cancel();
+  }
 }
 void Robot::TeleopPeriodic() {}
 void Robot::TeleopExit() {}

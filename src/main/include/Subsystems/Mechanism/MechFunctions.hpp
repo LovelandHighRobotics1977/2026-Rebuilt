@@ -18,6 +18,8 @@ class MechFunctions : public frc2::SubsystemBase {
 		frc2::StartEndCommand Mech_5_Backward();
 		frc2::StartEndCommand Mech_6_Foward();
 		frc2::StartEndCommand Mech_6_Backward();
+		frc2::SequentialCommandGroup shoot();
+		frc2::SequentialCommandGroup intake();
 
 
 		//void alignArm(bool align);

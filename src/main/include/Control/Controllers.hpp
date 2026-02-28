@@ -134,12 +134,20 @@ class Operator : public frc2::SubsystemBase {
 			Mech_3_Backward = m_XboxController.GetBButton();
 			Mech_4_Foward = m_XboxController.GetXButton();
 			Mech_4_Backward = m_XboxController.GetBButton();
-			Mech_5_Foward = m_XboxController.GetStartButton();
-			Mech_5_Backward = m_XboxController.GetBackButton();
+			if (m_XboxController.GetRightTriggerAxis() > 0.3) {
+				Mech_5_Foward = true;
+			} else {
+				Mech_5_Foward = false;
+			}
+			if (m_XboxController.GetLeftTriggerAxis() > 0.3) {
+				Mech_5_Backward = true;
+			} else  {
+				Mech_5_Backward = false;
+			}
+
 			Mech_6_Foward = m_XboxController.GetYButton();
 			Mech_6_Backward = m_XboxController.GetAButton();
-			m_XboxController.SetRumble(frc::GenericHID::RumbleType::kRightRumble, 0);
-			m_XboxController.SetRumble(frc::GenericHID::RumbleType::kRightRumble, 1);
+			
 		}
 
 		

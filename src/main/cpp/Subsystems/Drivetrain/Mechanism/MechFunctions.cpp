@@ -17,14 +17,14 @@ frc2::StartEndCommand MechFunctions::Mech_1_Backward(){
 }
 frc2::StartEndCommand MechFunctions::Mech_2_Foward(){
 	return frc2::StartEndCommand(
-		[this] {m_Mech_2.setMech_2(0.6);}, 
+		[this] {m_Mech_2.setMech_2(0.3);}, 
 		[this] { m_Mech_2.setMech_2(0); }
 	);
 }
 
 frc2::StartEndCommand MechFunctions::Mech_2_Backward(){
 	return frc2::StartEndCommand(
-		[this] { m_Mech_2.setMech_2(-0.6); } , 
+		[this] { m_Mech_2.setMech_2(-0.3); } , 
 		[this] { m_Mech_2.setMech_2(0); } 
 	);
 }
@@ -87,3 +87,22 @@ void alignArm(bool align){
 
 }
 */
+frc2::SequentialCommandGroup MechFunctions::shoot(){
+	return frc2::SequentialCommandGroup(
+		frc2::ParallelRaceGroup(
+			frc2::RunCommand([this] { m_Mech_1.setMech_1(.2); }),
+			frc2::WaitCommand(0.4_s)
+		),
+		frc2::InstantCommand([this] {  m_Mech_1.setMech_1(0); })
+	);
+}
+frc2::SequentialCommandGroup MechFunctions::intake(){
+	return frc2::SequentialCommandGroup(
+		frc2::ParallelRaceGroup(
+			frc2::RunCommand([this] { m_Mech_3.setMech_3(.6); }),
+			frc2::WaitCommand(0.4_s)
+		),
+		frc2::InstantCommand([this] {  m_Mech_3.setMech_3(0); })
+	);
+}
+

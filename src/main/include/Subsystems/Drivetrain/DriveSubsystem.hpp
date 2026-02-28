@@ -3,6 +3,7 @@
 
 #include "headers/Headers.hpp"
 #include "subsystems/Drivetrain/SwerveModule.hpp"
+#include <frc/kinematics/ChassisSpeeds.h>
 
 class DriveSubsystem : public frc2::SubsystemBase {
 public:
@@ -24,12 +25,14 @@ public:
 	 * @param targetAprilTag Rotate towards the nearest april tag
 	 */
 	void Drive(DriveData data);
+	void driveRobotRelative(frc::ChassisSpeeds speeds);
 	void SetModuleStates(wpi::array<frc::SwerveModuleState, 4> desiredStates);
-	frc2::SequentialCommandGroup ZeroOdometry(frc::Pose2d pose);
+	
+	frc2::SequentialCommandGroup resetPose(frc::Pose2d pose);
 
 	frc::Rotation2d GetHeading();
 	frc::Pose2d GetPose();
-
+	frc::ChassisSpeeds getRobotRelativeSpeeds();
 	frc::SwerveDriveKinematics<4> DriveKinematics{
 		frc::Translation2d{Drivetrain::Module::Front::Left::Location},
 		frc::Translation2d{Drivetrain::Module::Front::Right::Location},
@@ -40,11 +43,11 @@ public:
 	void driveFromTagDuringAuto();
 	frc2::SequentialCommandGroup AutoAlignLeft(DriveSubsystem *drive);
 	frc2::SequentialCommandGroup AutoAlignRight(DriveSubsystem *drive);
-	
-
+	void ResetOdometry(frc::Pose2d pose);
 private:
 
-	void ResetOdometry(frc::Pose2d pose);
+	
+	void ResetWheels();
 
 	SwerveModule m_frontLeft;
 	SwerveModule m_frontRight;
@@ -57,6 +60,7 @@ private:
 	Gyro* gyro = Gyro::GetInstance();
 
 	frc::SwerveDriveOdometry<4> m_odometry;
+	frc::SwerveModuleState state;
 };
 
 

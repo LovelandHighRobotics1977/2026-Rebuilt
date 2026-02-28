@@ -13,8 +13,8 @@ class Mech_1 : public frc2::SubsystemBase {
 
 		ctre::phoenix6::hardware::TalonFX mech_1_1;
 	    ctre::phoenix6::configs::TalonFXConfiguration mech1_1MotorConfig{};
-		ctre::phoenix6::hardware::TalonFX mech_1_2;
-	    ctre::phoenix6::configs::TalonFXConfiguration mech1_2MotorConfig{};
+		//ctre::phoenix6::hardware::TalonFX mech_1_2;
+	    //ctre::phoenix6::configs::TalonFXConfiguration mech1_2MotorConfig{};
 		
 
 		
