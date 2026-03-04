@@ -22,7 +22,7 @@
 #include "Subsystems/Mechanism/MechFunctions.hpp"
 
 RobotContainer::RobotContainer() {
-	autoChooser = pathplanner::AutoBuilder::buildAutoChooser("New Auto");
+	autoChooser = pathplanner::AutoBuilder::buildAutoChooser("Ideal Auto");
 	frc::SmartDashboard::PutData("Auto Chooser", &autoChooser);
 	ConfigureDashboard();
 	ConfigureButtonBindings();
@@ -31,13 +31,13 @@ RobotContainer::RobotContainer() {
 	pathplanner::NamedCommands::registerCommand("Shoot", std::move(m_mechanism.shoot()).ToPtr());
 }
 
-/*frc2::Command * RobotContainer::getSelectedAutonomous() {
+frc2::Command * RobotContainer::getSelectedAutonomous() {
   // Returns a frc2::Command* that is freed at program termination
   return autoChooser.GetSelected();
-}*/
+}
 using namespace pathplanner;
 frc2::CommandPtr RobotContainer::getAutonomousCommand() {
-  return PathPlannerAuto("Test").ToPtr();
+  return PathPlannerAuto("Ideal Auto").ToPtr();
 }
 void RobotContainer::ConfigureDefaultCommands() {
 	m_driver.SetDefaultCommand(frc2::RunCommand( [this] { m_driver.update(); } , {&m_driver} ));
