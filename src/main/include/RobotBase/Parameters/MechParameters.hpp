@@ -11,6 +11,8 @@ namespace Mechanism {
 	static constexpr int Mech_4 = 18;
 	static constexpr int Mech_5 = 15;
 	static constexpr int Mech_6 = 20;
+	static constexpr int Mech_7 = 21;
+
 	
 }
 

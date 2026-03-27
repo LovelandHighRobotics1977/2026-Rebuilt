@@ -21,7 +21,7 @@ namespace AutoInfo{
     static int positionSet;
     static int targetSetR;
     static int targetSetB;
-    static std::optional<frc::DriverStation::Alliance> colorSet;
+    //static std::optional<frc::DriverStation::Alliance> colorSet;
     
 }
 //Add either a namespace or class for below
