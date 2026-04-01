@@ -14,19 +14,6 @@
 #include <pathplanner/lib/auto/AutoBuilder.h>
 #include "Subsystems/Mechanism/MechFunctions.hpp"
 
-frc2::CommandPtr AutoRoutine::newAuto(DriveSubsystem *drive, MechFunctions *mechFunctions){
-	return frc2::SequentialCommandGroup(
-		//drive->ResetOdometry({0_m, 0_m, 0_deg}),
-		frc2::SequentialCommandGroup(
-			frc2::InstantCommand([drive] { drive->Drive({});}),
-			frc2::ParallelRaceGroup(
-					frc2::RunCommand([drive] { drive->Drive({0_fps, 1_fps, 0_deg_per_s, 0});}, {drive}),
-					frc2::WaitCommand(1_s)
-				)
-		)
-	).ToPtr();
-}
-
 /*frc2::CommandPtr RobotContainer::getAutonomousCommand(){
     // This method loads the auto when it is called, however, it is recommended
     // to first load your paths/autos when code starts, then return the

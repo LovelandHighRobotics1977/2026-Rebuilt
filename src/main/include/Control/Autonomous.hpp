@@ -25,10 +25,5 @@ namespace AutoInfo{
     
 }
 //Add either a namespace or class for below
-namespace AutoRoutine{
-   // void setAutoRoutineValues(int position, int targetR, int targetB, std::optional<frc::DriverStation::Alliance> color);
-
-    frc2::CommandPtr newAuto(DriveSubsystem *drive, MechFunctions *mechFunctions);
-}
 
 #endif  // _COMMANDS_AUTONOMOUS_H
