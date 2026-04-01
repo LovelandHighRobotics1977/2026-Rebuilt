@@ -25,7 +25,7 @@ void Robot::AutonomousInit() {
 	//m_autonomousCommand = RobotContainer::a_main; //sets the auto command to the one and only.  Must change if more get added
 	//add new way to get autonomous command
 	
-	  m_autonomousCommand = m_container.getAutonomousCommand();
+	m_autonomousCommand = m_container.getAutonomousCommand();
 
   if (m_autonomousCommand) {
     m_autonomousCommand->Schedule();

@@ -21,18 +21,14 @@ namespace AutoInfo{
     static int positionSet;
     static int targetSetR;
     static int targetSetB;
-    static std::optional<frc::DriverStation::Alliance> colorSet;
+    //static std::optional<frc::DriverStation::Alliance> colorSet;
     
 }
 //Add either a namespace or class for below
-/*namespace AutoFctns{
-    void setAutoRoutineValues(int position, int targetR, int targetB, std::optional<frc::DriverStation::Alliance> color);
+namespace AutoRoutine{
+   // void setAutoRoutineValues(int position, int targetR, int targetB, std::optional<frc::DriverStation::Alliance> color);
 
-    frc2::CommandPtr autonomousRoutine(DriveSubsystem *drive);
-}*/
-
-
-
-
+    frc2::CommandPtr newAuto(DriveSubsystem *drive, MechFunctions *mechFunctions);
+}
 
 #endif  // _COMMANDS_AUTONOMOUS_H

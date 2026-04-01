@@ -1,21 +1,21 @@
 #include "subsystems/Mechanism/Mech.hpp"
 
-Mech_1::Mech_1() : mech_1_1{Mechanism::Mech_1_1}, mech_1_2{Mechanism::Mech_1_2}{
+Mech_1::Mech_1() : mech_1_1{Mechanism::Mech_1_1}, mech_7{Mechanism::Mech_7}{
     mech1_1MotorConfig.MotorOutput.WithNeutralMode(ctre::phoenix6::signals::NeutralModeValue::Coast);
-    mech1_1MotorConfig.MotorOutput.WithInverted(ctre::phoenix6::signals::InvertedValue::Clockwise_Positive);
-    mech1_1MotorConfig.CurrentLimits.WithSupplyCurrentLimit(static_cast<units::current::ampere_t>(20));
+    mech1_1MotorConfig.MotorOutput.WithInverted(ctre::phoenix6::signals::InvertedValue::CounterClockwise_Positive);
+    mech1_1MotorConfig.CurrentLimits.WithSupplyCurrentLimit(static_cast<units::current::ampere_t>(40));
     mech_1_1.GetConfigurator().Apply(mech1_1MotorConfig);
 
-   /* mech1_2MotorConfig.MotorOutput.WithNeutralMode(ctre::phoenix6::signals::NeutralModeValue::Coast);
-    mech1_2MotorConfig.MotorOutput.WithInverted(ctre::phoenix6::signals::InvertedValue::Clockwise_Positive);
-    mech1_2MotorConfig.CurrentLimits.WithSupplyCurrentLimit(static_cast<units::current::ampere_t>(20));
-    mech_1_2.GetConfigurator().Apply(mech1_2MotorConfig); */
+    mech7MotorConfig.MotorOutput.WithNeutralMode(ctre::phoenix6::signals::NeutralModeValue::Coast);
+    mech7MotorConfig.MotorOutput.WithInverted(ctre::phoenix6::signals::InvertedValue::Clockwise_Positive);
+    mech7MotorConfig.CurrentLimits.WithSupplyCurrentLimit(static_cast<units::current::ampere_t>(40));
+    mech_7.GetConfigurator().Apply(mech7MotorConfig); 
 
 }
 
 void Mech_1::setMech_1(double speed){
     mech_1_1.Set(speed);
-    //mech_1_2.Set(speed);
+    mech_7.Set(speed);
 }
 Mech_2::Mech_2() : mech_2{Mechanism::Mech_2}{
     mech2MotorConfig.MotorOutput.WithNeutralMode(ctre::phoenix6::signals::NeutralModeValue::Coast);
@@ -49,7 +49,7 @@ void Mech_4::setMech_4(double speed){
 }
 Mech_5::Mech_5() : mech_5{Mechanism::Mech_5}{
     mech5MotorConfig.MotorOutput.WithNeutralMode(ctre::phoenix6::signals::NeutralModeValue::Brake);
-    mech5MotorConfig.MotorOutput.WithInverted(ctre::phoenix6::signals::InvertedValue::CounterClockwise_Positive);
+    mech5MotorConfig.MotorOutput.WithInverted(ctre::phoenix6::signals::InvertedValue::Clockwise_Positive);
     mech5MotorConfig.CurrentLimits.WithSupplyCurrentLimit(static_cast<units::current::ampere_t>(20));
     mech_5.GetConfigurator().Apply(mech5MotorConfig);
 

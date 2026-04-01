@@ -22,13 +22,15 @@
 #include "Subsystems/Mechanism/MechFunctions.hpp"
 
 RobotContainer::RobotContainer() {
-	autoChooser = pathplanner::AutoBuilder::buildAutoChooser("New Auto");
-	frc::SmartDashboard::PutData("Auto Chooser", &autoChooser);
+	autoChooser = pathplanner::AutoBuilder::buildAutoChooser("Good auto");
+	frc::SmartDashboard::PutData("Auto", &autoChooser);
 	ConfigureDashboard();
 	ConfigureButtonBindings();
 	ConfigureDefaultCommands();
 	ConfigureAutonomousChooser();
 	pathplanner::NamedCommands::registerCommand("Shoot", std::move(m_mechanism.shoot()).ToPtr());
+	pathplanner::NamedCommands::registerCommand("Intake", std::move(m_mechanism.intake()).ToPtr());
+	pathplanner::NamedCommands::registerCommand("Rev", std::move(m_mechanism.rev()).ToPtr());
 }
 
 /*frc2::Command * RobotContainer::getSelectedAutonomous() {
@@ -37,7 +39,7 @@ RobotContainer::RobotContainer() {
 }*/
 using namespace pathplanner;
 frc2::CommandPtr RobotContainer::getAutonomousCommand() {
-  return PathPlannerAuto("Test").ToPtr();
+  return PathPlannerAuto("Good auto").ToPtr();
 }
 void RobotContainer::ConfigureDefaultCommands() {
 	m_driver.SetDefaultCommand(frc2::RunCommand( [this] { m_driver.update(); } , {&m_driver} ));
@@ -137,7 +139,7 @@ void RobotContainer::ConfigureAutonomousChooser() {
 
 void RobotContainer::setAutoValues() {
 	//Set team color, which will provide positive/negative multiplier:
-	if(c_allianceOverride.GetSelected() == 0){
+	/*if(c_allianceOverride.GetSelected() == 0){
 		if(auto check = frc::DriverStation::GetAlliance()){
 			AutoInfo::colorSet = frc::DriverStation::GetAlliance();
 		}
@@ -151,7 +153,7 @@ void RobotContainer::setAutoValues() {
 			case 2: AutoInfo::colorSet = frc::DriverStation::Alliance::kBlue;
 			
 		}
-	}
+	}*/
 	//Set the starting position, which affects arching angle
 	switch(c_position.GetSelected()){
 		case 1: AutoInfo::positionSet = 1;//true center value
@@ -183,7 +185,6 @@ void RobotContainer::ConfigureDashboard() {
 	cs::UsbCamera DriveCamera = frc::CameraServer::StartAutomaticCapture(0);
 
 }
+/*frc2::CommandPtr RobotContainer::getAutonomousCommand() {
 
-/*frc2::Command* RobotContainer::GetAutonomousCommand() {
-	return RobotContainer::a_main.get();
 }*/

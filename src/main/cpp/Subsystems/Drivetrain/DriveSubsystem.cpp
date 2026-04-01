@@ -54,13 +54,13 @@ DriveSubsystem::DriveSubsystem()
         [this](const frc::ChassisSpeeds& speeds){this->driveRobotRelative(speeds);}, 
         std::make_shared<PPHolonomicDriveController>( 
             PIDConstants(0.0, 0.0, 0.0), // Translation 
-            PIDConstants(8.0, 0.0, 0.0) // Rotation
+            PIDConstants(-8.0, 0.0, 0.0) // Rotation
         ),
         config, 
         [this]() {  
             auto alliance = frc::DriverStation::GetAlliance();
             if (alliance) {
-                return alliance.value() == frc::DriverStation::Alliance::kRed;
+                return alliance == frc::DriverStation::Alliance::kRed;
             }
             return false;
         },
@@ -70,7 +70,7 @@ DriveSubsystem::DriveSubsystem()
 
 void DriveSubsystem::Periodic() {
 	OdometryData data;
-
+	
 	data.angle = DriveSubsystem::GetHeading();
 
 	data.positions[0] = m_frontLeft.GetPosition();
@@ -149,7 +149,16 @@ frc2::SequentialCommandGroup DriveSubsystem::resetPose(frc::Pose2d pose) {
 }
 
 frc::Pose2d DriveSubsystem::GetPose() {
-	return m_odometry.GetPose();
+	OdometryData data;
+	gyroAngle = units::degree_t{Gyro::GetInstance()->ahrs.GetYaw()};
+
+
+	data.positions[0] = m_frontLeft.GetPosition();
+	data.positions[1] = m_frontRight.GetPosition();
+	data.positions[2] = m_rearLeft.GetPosition();
+	data.positions[3] = m_rearRight.GetPosition();
+
+	return m_odometry.Update(gyroAngle, data.positions); //getpose
 }
 
 void DriveSubsystem::ResetOdometry(frc::Pose2d pose) {
@@ -177,7 +186,8 @@ void DriveSubsystem::ResetWheels() {
 }
 
 frc::ChassisSpeeds DriveSubsystem::getRobotRelativeSpeeds() {
-	return robotRelativeSpeeds;
+	return DriveKinematics.ToChassisSpeeds({m_frontLeft.GetState(), m_frontRight.GetState(), m_rearLeft.GetState(), m_rearRight.GetState()});
+	//robotRelativeSpeeds
 }
 
 void DriveSubsystem::driveFromTagDuringAuto(){

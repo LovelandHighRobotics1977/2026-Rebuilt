@@ -57,6 +57,8 @@ private:
 	frc::ChassisSpeeds fieldRelativeSpeeds;
 	frc::ChassisSpeeds robotRelativeSpeeds;
 
+	frc::Rotation2d gyroAngle;
+
 	Gyro* gyro = Gyro::GetInstance();
 
 	frc::SwerveDriveOdometry<4> m_odometry;

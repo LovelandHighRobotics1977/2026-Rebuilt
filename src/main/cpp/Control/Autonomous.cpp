@@ -14,7 +14,18 @@
 #include <pathplanner/lib/auto/AutoBuilder.h>
 #include "Subsystems/Mechanism/MechFunctions.hpp"
 
-//using namespace pathplanner;
+frc2::CommandPtr AutoRoutine::newAuto(DriveSubsystem *drive, MechFunctions *mechFunctions){
+	return frc2::SequentialCommandGroup(
+		//drive->ResetOdometry({0_m, 0_m, 0_deg}),
+		frc2::SequentialCommandGroup(
+			frc2::InstantCommand([drive] { drive->Drive({});}),
+			frc2::ParallelRaceGroup(
+					frc2::RunCommand([drive] { drive->Drive({0_fps, 1_fps, 0_deg_per_s, 0});}, {drive}),
+					frc2::WaitCommand(1_s)
+				)
+		)
+	).ToPtr();
+}
 
 /*frc2::CommandPtr RobotContainer::getAutonomousCommand(){
     // This method loads the auto when it is called, however, it is recommended
@@ -30,7 +41,7 @@
 
 sets the auto routine name and devices to be used.  In this case, it is named smapleAuto, and will
 use the drivetrain and note mechanism:
-frc2::CommandPtr AutoRoutine::sampleAuto(DriveSubsystem *drive, NoteMechanism *noteMechanism) {
+frc2::CommandPtr `Routine::sampleAuto(DriveSubsystem *drive, NoteMechanism *noteMechanism) {
 
 	This tells the auto routine to complete all of the actions in order
     return frc2::SequentialCommandGroup(
