@@ -7,6 +7,8 @@
 
 #include "subsystems/Drivetrain/Commands.hpp"
 
+#include "subsystems/Mechanism/MechFunctions.hpp"
+
 
 /*
 Run : Shoot once and skedaddle ( In center : goes under the stage )
@@ -25,5 +27,14 @@ namespace AutoInfo{
     
 }
 //Add either a namespace or class for below
+class Autonomous{
+   // void setAutoRoutineValues(int position, int targetR, int targetB, std::optional<frc::DriverStation::Alliance> color);
+public:
+    frc2::CommandPtr newAuto();
+    Autonomous(DriveSubsystem *drive, MechFunctions *mechFunctions);
+private:
+    DriveSubsystem* m_drive;
+    MechFunctions* m_mechFunctions;
+};
 
 #endif  // _COMMANDS_AUTONOMOUS_H

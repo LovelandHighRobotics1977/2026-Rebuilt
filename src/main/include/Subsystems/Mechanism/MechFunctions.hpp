@@ -20,8 +20,12 @@ class MechFunctions : public frc2::SubsystemBase {
 		frc2::StartEndCommand Mech_6_Backward();
 		frc2::SequentialCommandGroup rev();
 		frc2::SequentialCommandGroup intake();
-		frc2::SequentialCommandGroup shoot();
-
+		frc2::SequentialCommandGroup intakeCancel();
+		frc2::SequentialCommandGroup shoot(double f);
+		frc2::SequentialCommandGroup shootCancel();
+	frc2::StartEndCommand evilintake();
+	frc2::SequentialCommandGroup simplerev();
+	frc2::InstantCommand hardrev();
 	private:
 
 

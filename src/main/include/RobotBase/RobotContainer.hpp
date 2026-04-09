@@ -43,10 +43,12 @@ class RobotContainer {
 		frc::SendableChooser<int> c_position;
 		frc::SendableChooser<int> c_target;
 		//frc::SendableChooser<int> c_allianceOverride;
-		private:
-    /* Path follower */
+	private:
+
     frc::SendableChooser<frc2::Command *> autoChooser;	
-//	frc2::CommandPtr a_newAuto = AutoRoutine::newAuto(&m_drive, &m_mechanism);
+	Autonomous m_auto =  Autonomous(&m_drive, &m_mechanism);
+	frc2::CommandPtr a_newAuto = std::move(m_auto.newAuto());  
+
 };
 	
 

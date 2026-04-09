@@ -14,6 +14,9 @@
 #include "Subsystems/Drivetrain/DriveSubsystem.hpp"
 #include "Subsystems/Drivetrain/Commands.hpp"
 #include "Subsystems/Drivetrain/SwerveModule.hpp"
+//#include "headers/limelighthelpers.h"
+#include <frc/smartdashboard/SmartDashboard.h>
+
 
 using namespace pathplanner;
 DriveSubsystem::DriveSubsystem()
@@ -68,6 +71,24 @@ DriveSubsystem::DriveSubsystem()
 	);
 	}
 
+/*void DriveSubsystem::HubAutoAlign(){while(true){
+	//units::angular_velocity::degrees_per_second_t
+	double KpAim = -1;
+	double KpDistance = -0.1;
+	double min_aim_command = 0.05;
+	double tx = LimelightHelpers::getTX("");  // Horizontal offset from crosshair to target in degrees
+	double ty = LimelightHelpers::getTY("");  // Vertical offset from crosshair to target in degrees
+	double heading_error = -tx;
+    double distance_error = -ty;
+    double steering_adjust = 0.0;
+	if (tx > 1.0){steering_adjust = KpAim*heading_error - min_aim_command;}
+    else if (tx < -1.0){steering_adjust = KpAim*heading_error + min_aim_command;}
+    double distance_adjust = KpDistance * distance_error;
+	DriveSubsystem::Drive({0_fps,0_fps,units::angular_velocity::degrees_per_second_t(steering_adjust)});
+	frc::SmartDashboard::PutNumber("tx",tx);
+	frc::SmartDashboard::PutNumber("ty",ty);}
+}*/
+
 void DriveSubsystem::Periodic() {
 	OdometryData data;
 	
@@ -81,6 +102,8 @@ void DriveSubsystem::Periodic() {
 	m_odometry.Update(data.angle, data.positions);
 
 	Field2d::GetInstance()->m_field.SetRobotPose(m_odometry.GetPose());
+	//frc::SmartDashboard::PutNumber("tx",LimelightHelpers::getTX(""));
+	//frc::SmartDashboard::PutNumber("ty",ty);
 }
 
 void DriveSubsystem::Drive(DriveData data) {
@@ -187,7 +210,6 @@ void DriveSubsystem::ResetWheels() {
 
 frc::ChassisSpeeds DriveSubsystem::getRobotRelativeSpeeds() {
 	return DriveKinematics.ToChassisSpeeds({m_frontLeft.GetState(), m_frontRight.GetState(), m_rearLeft.GetState(), m_rearRight.GetState()});
-	//robotRelativeSpeeds
 }
 
 void DriveSubsystem::driveFromTagDuringAuto(){

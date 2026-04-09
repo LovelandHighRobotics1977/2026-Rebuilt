@@ -11,9 +11,6 @@
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/Command.h>
 #include <memory>
-#include <pathplanner/lib/auto/AutoBuilder.h>
-#include <pathplanner/lib/path/PathPlannerPath.h>
-#include <pathplanner/lib/commands/PathPlannerAuto.h>
 #include <pathplanner/lib/auto/NamedCommands.h>
 #include <pathplanner/lib/events/EventTrigger.h>
 #include <frc/smartdashboard/SmartDashboard.h>
@@ -22,13 +19,12 @@
 #include "Subsystems/Mechanism/MechFunctions.hpp"
 
 RobotContainer::RobotContainer() {
-	autoChooser = pathplanner::AutoBuilder::buildAutoChooser("Rotate");
 	frc::SmartDashboard::PutData("Auto", &autoChooser);
 	ConfigureDashboard();
 	ConfigureButtonBindings();
 	ConfigureDefaultCommands();
 	ConfigureAutonomousChooser();
-	pathplanner::NamedCommands::registerCommand("Shoot", std::move(m_mechanism.shoot()).ToPtr());
+	//pathplanner::NamedCommands::registerCommand("Shoot", std::move(m_mechanism.shoot()).ToPtr());
 	pathplanner::NamedCommands::registerCommand("Intake", std::move(m_mechanism.intake()).ToPtr());
 	pathplanner::NamedCommands::registerCommand("Rev", std::move(m_mechanism.rev()).ToPtr());
 }
@@ -39,7 +35,8 @@ RobotContainer::RobotContainer() {
 }*/
 using namespace pathplanner;
 frc2::CommandPtr RobotContainer::getAutonomousCommand() {
-  return PathPlannerAuto("Rotate").ToPtr();
+  //return m_auto.newAuto();
+  return std::move(a_newAuto);
 }
 void RobotContainer::ConfigureDefaultCommands() {
 	m_driver.SetDefaultCommand(frc2::RunCommand( [this] { m_driver.update(); } , {&m_driver} ));
