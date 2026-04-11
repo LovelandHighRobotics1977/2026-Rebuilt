@@ -44,6 +44,7 @@ public:
 	frc2::SequentialCommandGroup AutoAlignLeft(DriveSubsystem *drive);
 	frc2::SequentialCommandGroup AutoAlignRight(DriveSubsystem *drive);
 	void ResetOdometry(frc::Pose2d pose);
+	
 private:
 
 	

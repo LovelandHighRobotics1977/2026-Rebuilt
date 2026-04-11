@@ -27,25 +27,26 @@ frc2::CommandPtr Autonomous::newAuto(){
 	/*	frc2::ParallelRaceGroup(
 			frc2::RunCommand([drive]{drive->HubAutoAlign();}),frc2::WaitCommand(3_s)
 	)*/
-		
 		drive->resetPose({0_m, 0_m, 0_deg}),
 		frc2::ParallelCommandGroup(frc2::InstantCommand([mech]{mech->hardrev();}),
 		frc2::SequentialCommandGroup(
 			frc2::InstantCommand([drive] { drive->Drive({});}),
 			frc2::ParallelRaceGroup(
-				frc2::RunCommand([drive] { drive->Drive({9_fps, 0_fps, 3_deg_per_s, 0});}, {drive}),
+				frc2::RunCommand([drive] { drive->Drive({6.5_fps, 0_fps, 3_deg_per_s, 0});}, {drive}),
 				frc2::WaitCommand(.75_s)
 			))
 		),
 		frc2::InstantCommand([drive] { drive->Drive({});}),
+		//frc2::RunCommand([drive]{drive->HubAutoAlign();}),
 		frc2::SequentialCommandGroup(frc2::ParallelRaceGroup(
-			mech->shoot(.48),
-			frc2::WaitCommand(2.5_s)
+			mech->shoot(.48), 
+
+			frc2::WaitCommand(3_s)
 		)),
 		mech->shootCancel(),
 		frc2::SequentialCommandGroup(
 			frc2::InstantCommand([drive] { drive->Drive({});}),
-		//	frc2::RunCommand([mech] { mech->Mech_6_Foward();/*mech->evilintake();*/}),
+		//	frc2::RunCommand([mech] { mech->Mech_6_Foward();}),
 			frc2::ParallelRaceGroup(
 				frc2::RunCommand([drive] { drive->Drive({3_fps, -2_fps, -30_deg_per_s, 0});}, {drive}),
 				frc2::WaitCommand(1.07_s)
@@ -88,7 +89,12 @@ frc2::CommandPtr Autonomous::newAuto(){
 			frc2::ParallelRaceGroup(
 				frc2::RunCommand([drive] { drive->Drive({-4_fps, 0_fps, 25_deg_per_s, 0});}, {drive}),
 				frc2::WaitCommand(1_s)
-			)
+			),
+			frc2::InstantCommand([drive] { drive->Drive({});})
+		),
+		frc2::ParallelRaceGroup(
+			frc2::RunCommand([drive]{drive->HubAutoAlign();}),
+			frc2::WaitCommand(2.5_s)
 		),
 		frc2::SequentialCommandGroup(
 			frc2::InstantCommand([drive] { drive->Drive({});}),
