@@ -11,7 +11,7 @@ frc2::StartEndCommand MechFunctions::Mech_1_Foward(){
 
 frc2::StartEndCommand MechFunctions::Mech_1_Backward(){
 	return frc2::StartEndCommand(
-		[this] { m_Mech_1.setMech_1(0.9); } , 
+		[this] { m_Mech_1.setMech_1(0.7); } , 
 		[this] { m_Mech_1.setMech_1(0); } 
 	);
 }

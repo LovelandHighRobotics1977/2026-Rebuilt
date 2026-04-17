@@ -80,7 +80,7 @@ void DriveSubsystem::HubAutoAlign(){
 
 	while(tx>2||tx<-2){
 	//units::angular_velocity::degrees_per_second_t
-	double KpAim = -1;
+	double KpAim = -2;
 	double KpDistance = -0.1;
 	double min_aim_command = 0.2;
 	tx = LimelightHelpers::getTX("");  // Horizontal offset from crosshair to target in degrees

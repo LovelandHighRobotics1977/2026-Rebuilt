@@ -11,7 +11,7 @@ class Driver : public frc2::SubsystemBase {
 
 		Driver(const int port):m_Joystick{port}{};
 
-		bool field_relative;
+		bool field_relative; // 1
 
 		bool gyro_reset;
 
@@ -40,7 +40,7 @@ class Driver : public frc2::SubsystemBase {
 			// Control Scheme Definitions
 			if(m_Joystick.GetName() == std::string{"X52 H.O.T.A.S."}){
 				//field_relative = !m_Joystick.GetRawButton(6); // 6 is not working
-				field_relative = !m_Joystick.GetRawButton(15);
+				field_relative = !m_Joystick.GetRawButton(15); //=1 //GetRawButton(?)
 
 				gyro_reset = m_Joystick.GetRawButton(2);
 				

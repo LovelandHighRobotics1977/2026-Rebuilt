@@ -87,7 +87,7 @@ frc2::CommandPtr Autonomous::newAuto(){
 		frc2::SequentialCommandGroup(
 			frc2::InstantCommand([drive] { drive->Drive({});}),
 			frc2::ParallelRaceGroup(
-				frc2::RunCommand([drive] { drive->Drive({-4_fps, 0_fps, 25_deg_per_s, 0});}, {drive}),
+				frc2::RunCommand([drive] { drive->Drive({-4_fps, 0_fps, 35_deg_per_s, 0});}, {drive}),
 				frc2::WaitCommand(1_s)
 			),
 			frc2::InstantCommand([drive] { drive->Drive({});})
